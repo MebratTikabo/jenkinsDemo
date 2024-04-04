@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -23,8 +24,10 @@ public class LoginStep {
 		//WebDriverManager.firefoxdriver().setup();
 		//driver = new FirefoxDriver();
 		
-		WebDriverManager.edgedriver().setup();
-		driver = new EdgeDriver();
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		options.setHeadless(true);
+		driver = new ChromeDriver(options);
 		Thread.sleep(2000);
 		driver.manage().window().maximize();
 		driver.get(url);
